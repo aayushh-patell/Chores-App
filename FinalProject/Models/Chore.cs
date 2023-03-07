@@ -27,7 +27,7 @@ namespace FinalProject.Models
 	public class Chore
 	{
 		public int Id { get; set; }
-        public int? UserId { get; set; }
+        public string UserId { get; set; }
         public string Name { get; set; }
 		public DateTime DueDate { get; set; }
 
@@ -35,6 +35,6 @@ namespace FinalProject.Models
 		public Recurrence Recurrence { get; set; }
         public bool? Completed { get; set; }
 
-		public virtual User? User { get; set; }
+		public virtual User User { get; set; }
 	}
 }

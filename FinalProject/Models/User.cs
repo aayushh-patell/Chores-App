@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.AspNetCore.Identity;
+using FinalProject.Models;
 
 namespace FinalProject.Models
 {

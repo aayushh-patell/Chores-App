@@ -1,4 +1,60 @@
 ﻿<Properties StartupConfiguration="{F0EA4D29-171A-4CA2-A11C-DD3C57B2EF60}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="FinalProject/Areas/Identity/Pages/Account/Logout.cshtml.cs">
+    <Files>
+      <File FileName="FinalProject/Areas/Identity/Data/User.cs" Line="11" Column="1" />
+      <File FileName="FinalProject/Models/Chore.cs" Line="38" Column="22" />
+      <File FileName="FinalProject/Areas/Identity/Data/FinalProjectIdentityDbContext.cs" Line="43" Column="2" />
+      <File FileName="FinalProject/appsettings.json" Line="13" Column="2" />
+      <File FileName="FinalProject/Program.cs" Line="1" Column="1" />
+      <File FileName="FinalProject/Areas/Identity/Pages/Account/Login.cshtml" Line="1" Column="1" />
+      <File FileName="FinalProject/Areas/Identity/Pages/Account/Logout.cshtml" Line="1" Column="1" />
+      <File FileName="FinalProject/Areas/Identity/Pages/Account/Register.cshtml" Line="23" Column="57" />
+      <File FileName="FinalProject/Areas/Identity/Pages/Account/Register.cshtml.cs" Line="128" Column="48" />
+      <File FileName="FinalProject/Areas/Identity/Pages/Account/Logout.cshtml.cs" Line="12" Column="27" />
+      <File FileName="FinalProject/Areas/Identity/Pages/Account/Login.cshtml.cs" Line="17" Column="27" />
+      <File FileName="FinalProject/Areas/Identity/Pages/Account/_ViewImports.cshtml" Line="1" Column="1" />
+      <File FileName="FinalProject/Areas/Identity/Pages/Account/_StatusMessage.cshtml" Line="11" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="FinalProject" expanded="True">
+            <Node name="FinalProject" expanded="True">
+              <Node name="Areas" expanded="True">
+                <Node name="Identity" expanded="True">
+                  <Node name="Data" expanded="True" />
+                  <Node name="Pages" expanded="True">
+                    <Node name="Account" expanded="True">
+                      <Node name="Login.cshtml" expanded="True" />
+                      <Node name="Logout.cshtml" expanded="True">
+                        <Node name="Logout.cshtml.cs" selected="True" />
+                      </Node>
+                      <Node name="Register.cshtml" expanded="True" />
+                    </Node>
+                  </Node>
+                </Node>
+              </Node>
+              <Node name="Controllers" expanded="True" />
+              <Node name="Migrations" expanded="True" />
+              <Node name="Models" expanded="True" />
+              <Node name="Properties" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="Chore" expanded="True" />
+                <Node name="Home" expanded="True" />
+                <Node name="Shared" expanded="True" />
+                <Node name="User" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.FinalProject FirstBuild="True" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.FinalProject PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
 </Properties>
