@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using FinalProject.Areas.Identity.Data;
 using FinalProject.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FinalProject.Controllers
 {
+    [Authorize]
     public class UserController : Controller
     {
         private readonly FinalProjectIdentityDbContext _context;

@@ -7,9 +7,10 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace FinalProject.Areas.Identity.Data;
 
-public class FinalProjectIdentityDbContext : IdentityDbContext<IdentityUser>
+public class FinalProjectIdentityDbContext : IdentityDbContext<User>
 {
     public virtual DbSet<Chore> Chores { get; set; }
+    public virtual DbSet<Category> Categories { get; set; }
     public virtual DbSet<User> Users { get; set; }
 
     public FinalProjectIdentityDbContext(DbContextOptions<FinalProjectIdentityDbContext> options)
@@ -25,11 +26,17 @@ public class FinalProjectIdentityDbContext : IdentityDbContext<IdentityUser>
         // Add your customizations after calling base.OnModelCreating(builder);
         builder.ApplyConfiguration(new ApplicationUserEntityConfiguration());
 
-        builder.Entity<Chore>()
-            .HasOne(c => c.User)
-            .WithOne()
-            .IsRequired(true)
-            .HasForeignKey("Chore", "UserId");
+        //builder.Entity<Chore>()
+        //    .HasOne(c => c.User)
+        //    .WithMany(u => u.Chores)
+        //    .IsRequired(false)
+        //    .HasForeignKey("Chore","UserId");
+
+        //builder.Entity<Chore>()
+        //    .HasOne(c => c.Category)
+        //    .WithMany(c => c.Chores)
+        //    .IsRequired(false)
+        //    .HasForeignKey("Chore", "CategoryId");
     }
 }
 
