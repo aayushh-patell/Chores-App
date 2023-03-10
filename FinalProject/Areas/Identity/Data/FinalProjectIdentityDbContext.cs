@@ -25,18 +25,6 @@ public class FinalProjectIdentityDbContext : IdentityDbContext<User>
         // For example, you can rename the ASP.NET Identity table names and more.
         // Add your customizations after calling base.OnModelCreating(builder);
         builder.ApplyConfiguration(new ApplicationUserEntityConfiguration());
-
-        //builder.Entity<Chore>()
-        //    .HasOne(c => c.User)
-        //    .WithMany(u => u.Chores)
-        //    .IsRequired(false)
-        //    .HasForeignKey("Chore","UserId");
-
-        //builder.Entity<Chore>()
-        //    .HasOne(c => c.Category)
-        //    .WithMany(c => c.Chores)
-        //    .IsRequired(false)
-        //    .HasForeignKey("Chore", "CategoryId");
     }
 }
 

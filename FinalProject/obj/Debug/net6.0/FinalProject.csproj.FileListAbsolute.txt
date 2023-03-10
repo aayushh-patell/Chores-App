@@ -1,7 +1,6 @@
 /Users/aayushpatel/Documents/MITT/Grade 12/Advanced Database and ORM Concepts/FinalProject/FinalProject/bin/Debug/net6.0/appsettings.Development.json
 /Users/aayushpatel/Documents/MITT/Grade 12/Advanced Database and ORM Concepts/FinalProject/FinalProject/bin/Debug/net6.0/appsettings.json
 /Users/aayushpatel/Documents/MITT/Grade 12/Advanced Database and ORM Concepts/FinalProject/FinalProject/bin/Debug/net6.0/FinalProject.staticwebassets.runtime.json
-/Users/aayushpatel/Documents/MITT/Grade 12/Advanced Database and ORM Concepts/FinalProject/FinalProject/bin/Debug/net6.0/app.db
 /Users/aayushpatel/Documents/MITT/Grade 12/Advanced Database and ORM Concepts/FinalProject/FinalProject/bin/Debug/net6.0/FinalProject
 /Users/aayushpatel/Documents/MITT/Grade 12/Advanced Database and ORM Concepts/FinalProject/FinalProject/bin/Debug/net6.0/FinalProject.deps.json
 /Users/aayushpatel/Documents/MITT/Grade 12/Advanced Database and ORM Concepts/FinalProject/FinalProject/bin/Debug/net6.0/FinalProject.runtimeconfig.json
