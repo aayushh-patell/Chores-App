@@ -1,4 +1,4 @@
-@model FinalProject.Models.Chore
+@model FinalProject.Models.ViewModels.CreateChoreViewModel
 
 @{
     ViewData["Title"] = "Create";
@@ -11,10 +11,61 @@
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
+            <div class="form-group">
+                <label asp-for="UserId" class="control-label">User (Optional)</label>
+                <select asp-for="UserId" class="form-control" asp-items="@(new SelectList(Model.UserOptions, "Id", "FirstName"))">
+                    <option value="">-- Select User --</option>
+                </select>
+                <span asp-validation-for="UserId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DueDate" class="control-label"></label>
+                <input asp-for="DueDate" class="form-control" />
+                <span asp-validation-for="DueDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CategoryId" class="control-label">Label (Optional)</label>
+                <select asp-for="CategoryId" asp-items="@(new SelectList(Model.CategoryOptions, "Id", "Title"))" class="form-control">
+                    <option value="">-- Select Category --</option>
+                </select>
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Recurrence" class="control-label"></label>
+                <select asp-for="Recurrence" asp-items="@(new SelectList(Model.RecurrenceOptions))" class="form-control">
+                    <option value="">-- Select Recurrence --</option>
+                </select>
+                <span asp-validation-for="Recurrence" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Completed" class="control-label"></label>
+                <select asp-for="Completed" asp-items="@(new SelectList(Model.CompletedOptions))" class="form-control">
+                    <option value="">-- Select Completed --</option>
+                </select>
+                <span asp-validation-for="Completed" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SelectedMonths" class="control-label">Semi-Monthly Month Selection (Optional)</label>
+                <select asp-for="SelectedMonths" asp-items="@(new SelectList(Model.MonthOptions))" multiple class="form-control">
+                    <option value="">-- Select Months --</option>
+                </select>
+                <span asp-validation-for="SelectedMonths" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+        @*<form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="UserId" class="control-label">User</label>
-                <select asp-for="UserId" class ="form-control" asp-items="ViewBag.User"></select>
+                <select asp-for="UserId" class="form-control" asp-items="@Model.UserOptions"></select>
+                @Html.DropDownListFor(m => m.UserId, Model.UserOptions);
             </div>
             <div class="form-group">
                 <label asp-for="Name" class="control-label">Name</label>
@@ -28,7 +79,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="CategoryId" class="control-label">Category</label>
-                <select asp-for="CategoryId" class ="form-control" asp-items="ViewBag.Category"></select>
+                <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.Category"></select>
             </div>
             <div class="form-group">
                 <label asp-for="Recurrence" class="control-label">Recurrence</label>
@@ -36,14 +87,18 @@
                 <span asp-validation-for="Recurrence" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="SelectedMonths" class="control-label"></label>
+                <select asp-for="SelectedMonths" asp-items="new SelectList(Model.MonthOptions, " Name" ))" multiple class="form-control"></select>
+            </div>
+            <div class="form-group">
                 <label asp-for="Completed" class="control-label">Completed</label>
-                <input asp-for="Completed" class="form-control" />
+                <select asp-for="Completed" class="form-control" asp-items="ViewBag.Status"></select>
                 <span asp-validation-for="Completed" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
-        </form>
+        </form>*@
     </div>
 </div>
 

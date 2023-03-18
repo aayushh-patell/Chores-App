@@ -6,8 +6,10 @@ using Microsoft.EntityFrameworkCore;
 namespace FinalProject.Models.ViewModels
 {
 
-    public class CreateChoreViewModel
+    public class EditChoreViewModel
 	{
+        public int? Id { get; set; }
+
         public string? UserId { get; set; }
         public string Name { get; set; }
         public DateTime DueDate { get; set; }

@@ -22,9 +22,10 @@ namespace FinalProject.Models
 		public DateTime DueDate { get; set; }
         public int? CategoryId { get; set; }
 		public Recurrence Recurrence { get; set; }
-        public bool? Completed { get; set; }
+        public bool Completed { get; set; }
+        public virtual List<ChoreMonth> ChoreMonths { get; set; }
 
-		public virtual Category Category { get; set; }
+        public virtual Category Category { get; set; }
 		public virtual User User { get; set; }
 	}
 

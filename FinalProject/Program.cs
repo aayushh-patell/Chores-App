@@ -48,7 +48,9 @@ public class Program
 
         app.MapControllerRoute(
             name: "default",
-            pattern: "{controller=Home}/{action=Index}/{id?}");
+            pattern: "{controller=Home}/{action=Index}/{item1?}/{item2?}/{item3?}");
+
+        // "/chores/create/4/2/s" => chores controller, create action, item1 = 4, item2 = 2, item3 = "s"
         app.MapRazorPages();
 
         app.Run();

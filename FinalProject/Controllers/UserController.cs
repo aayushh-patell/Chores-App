@@ -19,7 +19,6 @@ namespace FinalProject.Controllers
             _context = context;
         }
 
-        // GET: User
         public async Task<IActionResult> Index()
         {
               return _context.Users != null ? 
@@ -27,7 +26,6 @@ namespace FinalProject.Controllers
                           Problem("Entity set 'FinalProjectIdentityDbContext.Users'  is null.");
         }
 
-        // GET: User/Details/5
         public async Task<IActionResult> Details(string id)
         {
             if (id == null || _context.Users == null)
@@ -45,15 +43,11 @@ namespace FinalProject.Controllers
             return View(user);
         }
 
-        // GET: User/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: User/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("FirstName,LastName,Id,UserName,NormalizedUserName,Email,NormalizedEmail,EmailConfirmed,PasswordHash,SecurityStamp,ConcurrencyStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEnd,LockoutEnabled,AccessFailedCount")] User user)
@@ -67,7 +61,6 @@ namespace FinalProject.Controllers
             return View(user);
         }
 
-        // GET: User/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null || _context.Users == null)
@@ -83,9 +76,6 @@ namespace FinalProject.Controllers
             return View(user);
         }
 
-        // POST: User/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(string id, [Bind("FirstName,LastName,Id,UserName,NormalizedUserName,Email,NormalizedEmail,EmailConfirmed,PasswordHash,SecurityStamp,ConcurrencyStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEnd,LockoutEnabled,AccessFailedCount")] User user)
@@ -118,7 +108,6 @@ namespace FinalProject.Controllers
             return View(user);
         }
 
-        // GET: User/Delete/5
         public async Task<IActionResult> Delete(string id)
         {
             if (id == null || _context.Users == null)
@@ -136,7 +125,6 @@ namespace FinalProject.Controllers
             return View(user);
         }
 
-        // POST: User/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)

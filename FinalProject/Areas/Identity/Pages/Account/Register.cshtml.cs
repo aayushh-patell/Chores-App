@@ -72,13 +72,15 @@ namespace FinalProject.Areas.Identity.Pages.Account
         public class InputModel
         {
             [Required]
-            [StringLength(255, ErrorMessage = "Error")]
+            [StringLength(255, ErrorMessage = "First name is too long")]
             [Display(Name = "First Name")]
+            [RegularExpression(@"^(?i:(?!January|February|March|April|May|June|July|August|September|October|November|December)).*", ErrorMessage = "First name contains invalid characters.")]
             public string FirstName { get; set; }
 
             [Required]
-            [StringLength(255, ErrorMessage = "Error")]
+            [StringLength(255, ErrorMessage = "Last name is too long")]
             [Display(Name = "Last Name")]
+            [RegularExpression(@"^(?i:(?!January|February|March|April|May|June|July|August|September|October|November|December)).*", ErrorMessage = "Last name contains invalid characters.")]
             public string LastName { get; set; }
 
             /// <summary>

@@ -4,6 +4,7 @@ using FinalProject.Areas.Identity.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FinalProject.Migrations
 {
     [DbContext(typeof(FinalProjectIdentityDbContext))]
-    partial class FinalProjectIdentityDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230315144311_AddMonthClass")]
+    partial class AddMonthClass
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -80,12 +82,34 @@ namespace FinalProject.Migrations
                     b.Property<int>("ChoreId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Month")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("MonthId")
+                        .HasColumnType("int");
 
-                    b.HasKey("ChoreId", "Month");
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
+                    b.HasKey("ChoreId", "MonthId");
+
+                    b.HasIndex("MonthId");
 
                     b.ToTable("ChoreMonths");
+                });
+
+            modelBuilder.Entity("FinalProject.Models.Month", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Months");
                 });
 
             modelBuilder.Entity("FinalProject.Models.User", b =>
@@ -323,7 +347,15 @@ namespace FinalProject.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("FinalProject.Models.Month", "Month")
+                        .WithMany("ChoreMonths")
+                        .HasForeignKey("MonthId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Chore");
+
+                    b.Navigation("Month");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -383,6 +415,11 @@ namespace FinalProject.Migrations
                 });
 
             modelBuilder.Entity("FinalProject.Models.Chore", b =>
+                {
+                    b.Navigation("ChoreMonths");
+                });
+
+            modelBuilder.Entity("FinalProject.Models.Month", b =>
                 {
                     b.Navigation("ChoreMonths");
                 });

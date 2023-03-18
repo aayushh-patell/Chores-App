@@ -20,7 +20,6 @@ namespace FinalProject.Controllers
             _context = context;
         }
 
-        // GET: Category
         public async Task<IActionResult> Index()
         {
               return _context.Categories != null ? 
@@ -28,7 +27,6 @@ namespace FinalProject.Controllers
                           Problem("Entity set 'FinalProjectIdentityDbContext.Categories'  is null.");
         }
 
-        // GET: Category/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Categories == null)
@@ -38,6 +36,7 @@ namespace FinalProject.Controllers
 
             var category = await _context.Categories
                 .FirstOrDefaultAsync(m => m.Id == id);
+
             if (category == null)
             {
                 return NotFound();
@@ -46,15 +45,11 @@ namespace FinalProject.Controllers
             return View(category);
         }
 
-        // GET: Category/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Category/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(CreateCategoryViewModel vm)
@@ -68,10 +63,10 @@ namespace FinalProject.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
             return View(ct);
         }
 
-        // GET: Category/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Categories == null)
@@ -80,6 +75,7 @@ namespace FinalProject.Controllers
             }
 
             var category = await _context.Categories.FindAsync(id);
+
             if (category == null)
             {
                 return NotFound();
@@ -87,9 +83,6 @@ namespace FinalProject.Controllers
             return View(category);
         }
 
-        // POST: Category/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Title")] Category category)
@@ -122,7 +115,6 @@ namespace FinalProject.Controllers
             return View(category);
         }
 
-        // GET: Category/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Categories == null)
@@ -132,6 +124,7 @@ namespace FinalProject.Controllers
 
             var category = await _context.Categories
                 .FirstOrDefaultAsync(m => m.Id == id);
+
             if (category == null)
             {
                 return NotFound();
@@ -140,7 +133,6 @@ namespace FinalProject.Controllers
             return View(category);
         }
 
-        // POST: Category/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -149,7 +141,9 @@ namespace FinalProject.Controllers
             {
                 return Problem("Entity set 'FinalProjectIdentityDbContext.Categories'  is null.");
             }
+
             var category = await _context.Categories.FindAsync(id);
+
             if (category != null)
             {
                 _context.Categories.Remove(category);
