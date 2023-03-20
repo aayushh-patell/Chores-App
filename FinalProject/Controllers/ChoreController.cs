@@ -16,12 +16,6 @@ namespace FinalProject.Controllers
 {
 	public class ChoreController : Controller
 	{
-		/* 
-			NOTES:
-			- To filter by URL parameters, you must first enter Chore/Index/
-				- I tried to automatically include that URL bit, but then all my links stopped working
-		*/
-
 		private readonly FinalProjectIdentityDbContext _context;
 
 		public ChoreController(FinalProjectIdentityDbContext context)
