@@ -1,4 +1,5 @@
-@model IEnumerable<FinalProject.Models.Chore>
+@*@model IEnumerable<FinalProject.Models.Chore>*@
+@model FinalProject.Models.ViewModels.IndexChoreViewModel
 
 @{
     ViewData["Title"] = "Index";
@@ -11,12 +12,36 @@
 </p>
 
 <form method="post">
-    <label>Filter</label>
-    <select name="complete">
-        <option value="">All</option>
-        <option value="true">Complete</option>
-        <option value="false">Incomplete</option>
-    </select>
+    <div class="form-group">
+        <label class="control-label">Completion Status</label>
+        <select asp-for="CompleteSelection" class="form-control">
+            <option value="">All</option>
+            <option value="true">Complete</option>
+            <option value="false">Incomplete</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label">User</label>
+        <select asp-for="UserSelection" asp-items="@(new SelectList(Model.UserOptions, "Id", "FirstName"))" class="form-control">
+            <option value="">-- Select User --</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label">Category</label>
+        <select asp-for="CategorySelection" asp-items="@(new SelectList(Model.CategoryOptions, "Id", "Title"))" class="form-control">
+            <option value="">-- Select Category --</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="RecurrenceSelection" class="control-label">Recurrence</label>
+        <select asp-for="RecurrenceSelection" asp-items="@(new SelectList(Model.RecurrenceOptions))" class="form-control">
+            <option value="">-- Select Recurrence --</option>
+        </select>
+    </div>
+    <br />
     <input type="submit" class="btn btn-primary" />
 </form>
 
@@ -26,31 +51,31 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                Name
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DueDate)
+                Due Date
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Recurrence)
+                Recurrence
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Completed)
+                Completed
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Category)
+                Category
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.User)
+                User
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ChoreMonths)
+                SemiMonthly Month Selection
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
+        @foreach (var item in Model.Chores)
         {
             <tr>
                 <td>

@@ -9,11 +9,19 @@ using FinalProject.Areas.Identity.Data;
 using FinalProject.Models;
 using FinalProject.Models.ViewModels;
 using System.Numerics;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication;
 
 namespace FinalProject.Controllers
 {
 	public class ChoreController : Controller
 	{
+		/* 
+			NOTES:
+			- To filter by URL parameters, you must first enter Chore/Index/
+				- I tried to automatically include that URL bit, but then all my links stopped working
+		*/
+
 		private readonly FinalProjectIdentityDbContext _context;
 
 		public ChoreController(FinalProjectIdentityDbContext context)
@@ -24,56 +32,73 @@ namespace FinalProject.Controllers
 		[HttpGet]
 		public async Task<IActionResult> Index(string? item1, string? item2, string? item3)
 		{
+			IndexChoreViewModel vm = new IndexChoreViewModel();
+
 			// Create a template, unrefined, list of chores, including related elements
 			var chores = _context.Chores
 				.Include(c => c.Category)
 				.Include(c => c.User)
 				.Include(c => c.ChoreMonths)
+				.OrderBy(c => c.DueDate)
 				.ToList();
 
 			// Check for URL parameters
-			if (item1 != null)
-			{
-				// Refine the chores list by filtering for URL parameters
-				chores = chores.Where(c => c.DueDate.ToString("MMMM") == item1 || c.Category?.Title == item1 || c.User?.FirstName == item1).ToList();
+			chores = FilterByURL(chores, item1, item2, item3);
 
-				if (item2 != null) {
-					chores = chores.Where(c => c.Category.Title == item2 || c.User.FirstName == item2).ToList();
+			vm.Chores = chores;
 
-					if (item3 != null)
-					{
-						chores = chores.Where(c => c.User.FirstName == item3).ToList();
-					}
-				}
-			}
+			// Populate lists for user filtering options
+            vm.CategoryOptions = _context.Categories.ToList();
+            vm.UserOptions = _context.Users.ToList();
 
-			return View(chores);
+            return View(vm);
 		}
 
 		[HttpPost]
-		public async Task<IActionResult> Index(bool? complete)
+		public async Task<IActionResult> Index(string? item1, string? item2, string? item3, IndexChoreViewModel vm)
 		{
 			// Create a template, unrefined, list of chores, including related elements
 			var chores = _context.Chores
 				.Include(c => c.Category)
 				.Include(c => c.User)
 				.Include(c => c.ChoreMonths)
-				.ToList();
+                .OrderBy(c => c.DueDate)
+                .ToList();
 
 			// Filter chores by their complete status upon user selection
-			if (complete == true)
+			chores = FilterByCompleteSelection(chores, vm.CompleteSelection);
+
+			// Filter chores by a specified user if a user was selected
+			if (vm.UserSelection != null)
 			{
-				chores = chores.Where(c => c.Completed == true).ToList();
-			}
-			else if (complete == false)
-			{
-				chores = chores.Where(c => c.Completed == false).ToList();
+				chores = FilterByUserSelection(chores, vm.UserSelection);
 			}
 
-			return View(chores);
+            // Filter chores by a specified category if a category was selected
+            if (vm.CategorySelection != null)
+            {
+                chores = FilterByCategorySelection(chores, vm.CategorySelection);
+            }
+
+            // Filter chores by a specified recurrence valye if a recurrence value was selected
+            if (vm.RecurrenceSelection != null)
+			{
+				chores = FilterByRecurrenceSelection(chores, vm.RecurrenceSelection);
+			}
+
+            // Check for URL parameters
+            chores = FilterByURL(chores, item1, item2, item3);
+
+			vm.Chores = chores;
+
+			// Populate selection fields for category and user
+            vm.CategoryOptions = _context.Categories.ToList();
+            vm.UserOptions = _context.Users.ToList();
+
+            return View(vm);
 		}
 
-		public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(int? id)
 		{
 			if (id == null || _context.Chores == null)
 			{
@@ -94,47 +119,25 @@ namespace FinalProject.Controllers
 			return View(chore);
 		}
 
+		[Authorize]
 		public IActionResult Create()
 		{
 			CreateChoreViewModel vm = new();
-			vm.CategoryOptions = _context.Categories.ToList();
+
+            // Populate selection fields for category and user
+            vm.CategoryOptions = _context.Categories.ToList();
 			vm.UserOptions = _context.Users.ToList();
+
 			return View(vm);
 		}
 
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public async Task<IActionResult> Create(CreateChoreViewModel vm)
+		[Authorize]
+        public async Task<IActionResult> Create(CreateChoreViewModel vm)
 		{
 			// Initialise values of a newly created chore based on user input saved in the ViewModel
-			Chore ch = new Chore();
-
-			if (vm.UserId != null)
-			{
-				ch.UserId = vm.UserId;
-			}
-
-			ch.Name = vm.Name;
-			ch.DueDate = vm.DueDate;
-
-			if (vm.CategoryId != null)
-			{
-				ch.CategoryId = vm.CategoryId;
-			}
-
-			ch.Recurrence = vm.Recurrence;
-			ch.Completed = vm.Completed;
-
-			// Save the user-selected months for any chore with a semimonthly recurrence
-			if (ch.Recurrence == Recurrence.SemiMonthly)
-			{
-                ch.ChoreMonths = new List<ChoreMonth>();
-                foreach (var month in vm.SelectedMonths)
-				{
-					ChoreMonth cm = new(ch.Id, month);
-					ch.ChoreMonths.Add(cm);
-				}
-			}
+			Chore ch = InitialiseValues(vm);
 
 			if (ModelState.IsValid)
 			{
@@ -145,6 +148,7 @@ namespace FinalProject.Controllers
 			return RedirectToAction(nameof(Index));
 		}
 
+		[Authorize]
 		public async Task<IActionResult> Edit(int? id)
 		{
 			if (id == null || _context.Chores == null)
@@ -153,15 +157,10 @@ namespace FinalProject.Controllers
 			}
 
             var vm = new EditChoreViewModel();
+
 			vm.Id = id;
 
-			//if (ch == null)
-			//{
-			//	return NotFound();
-			//}
-
-
-
+            // Populate selection fields for category and user
             vm.CategoryOptions = _context.Categories.ToList();
             vm.UserOptions = _context.Users.ToList();
 
@@ -170,36 +169,24 @@ namespace FinalProject.Controllers
 
 		[HttpPost]
 		[ValidateAntiForgeryToken]
+		[Authorize]
 		public async Task<IActionResult> Edit(EditChoreViewModel vm)
 		{
 			var ch = _context.Chores.Find(vm.Id);
 
-			ch.UserId = vm.UserId;
-			ch.Name = vm.Name;
-			ch.DueDate = vm.DueDate;
-			ch.CategoryId = vm.CategoryId;
-			ch.Recurrence = vm.Recurrence;
-			ch.Completed = vm.Completed;
-            ch.ChoreMonths = null;
-
-			foreach (var cm in _context.ChoreMonths)
+			// Resets ChoreMonths associated with the Chore the user wishes to edit
+			if (ch.Recurrence == Recurrence.SemiMonthly && ch.ChoreMonths != null)
 			{
-				if (cm.ChoreId == vm.Id)
-				{
-					_context.ChoreMonths.Remove(cm);
-				}
-			}
-
-            // Save the user-selected months for any chore with a semimonthly recurrence
-            if (ch.Recurrence == Recurrence.SemiMonthly && vm.SelectedMonths != null)
-            {
-                ch.ChoreMonths = new List<ChoreMonth>();
-                foreach (var month in vm.SelectedMonths)
+                foreach (var cm in _context.ChoreMonths)
                 {
-                    ChoreMonth cm = new(ch.Id, month);
-                    ch.ChoreMonths.Add(cm);
+                    if (cm.ChoreId == vm.Id)
+                    {
+                        _context.ChoreMonths.Remove(cm);
+                    }
                 }
             }
+
+			ch = EditValues(ch, vm);
 
             if (ModelState.IsValid)
 			{
@@ -225,6 +212,7 @@ namespace FinalProject.Controllers
 			return View(vm);
 		}
 
+		[Authorize]
 		public async Task<IActionResult> Delete(int? id)
 		{
 			if (id == null || _context.Chores == null)
@@ -248,6 +236,7 @@ namespace FinalProject.Controllers
 
 		[HttpPost, ActionName("Delete")]
 		[ValidateAntiForgeryToken]
+		[Authorize]
 		public async Task<IActionResult> DeleteConfirmed(int id)
 		{
 			if (_context.Chores == null)
@@ -271,7 +260,132 @@ namespace FinalProject.Controllers
 		  return (_context.Chores?.Any(e => e.Id == id)).GetValueOrDefault();
 		}
 
-        public async Task<IActionResult> Complete(int? id)
+		// Returns a list of chores that meets the user's URL selection
+		private List<Chore> FilterByURL(List<Chore> chores, string? item1, string? item2, string? item3)
+		{
+            if (item1 != null)
+            {
+                chores = chores.Where(c => c.DueDate.ToString("MMMM") == item1 || c.Category?.Title == item1 || c.User?.FirstName == item1).ToList();
+
+                if (item2 != null)
+                {
+                    chores = chores.Where(c => c.Category.Title == item2 || c.User.FirstName == item2).ToList();
+
+                    if (item3 != null)
+                    {
+                        chores = chores.Where(c => c.User.FirstName == item3).ToList();
+                    }
+                }
+            }
+
+			return chores;
+        }
+
+		// Returns a list of chores based on the selected complete status filter
+		private List<Chore> FilterByCompleteSelection(List<Chore> chores, bool? complete)
+		{
+            if (complete == true)
+            {
+                chores = chores.Where(c => c.Completed == true).ToList();
+            }
+            else if (complete == false)
+            {
+                chores = chores.Where(c => c.Completed == false).ToList();
+            }
+
+			return chores;
+        }
+
+        // Returns a list of chores based on the selected user filter
+        private List<Chore> FilterByUserSelection(List<Chore> chores, string? userId)
+		{
+			return chores.Where(c => c.UserId == userId).ToList();
+		}
+
+        // Returns a list of chores based on the selected category filter
+        private List<Chore> FilterByCategorySelection(List<Chore> chores, int? categoryId)
+        {
+			return chores.Where(c => c.CategoryId == categoryId).ToList();
+        }
+
+        // Returns a list of chores based on the selected recurrence filter
+        private List<Chore> FilterByRecurrenceSelection(List<Chore> chores, Recurrence? recurrenceSelection)
+        {
+			return chores.Where(c => c.Recurrence == recurrenceSelection).ToList();
+        }
+
+		// Initialise values of a newly created chore with values from the ViewModel
+        public Chore InitialiseValues(CreateChoreViewModel vm)
+		{
+			Chore ch = new Chore();
+
+            if (vm.UserId != null)
+            {
+                ch.UserId = vm.UserId;
+            }
+
+            ch.Name = vm.Name;
+            ch.DueDate = vm.DueDate;
+
+            if (vm.CategoryId != null)
+            {
+                ch.CategoryId = vm.CategoryId;
+            }
+
+            ch.Recurrence = vm.Recurrence;
+            ch.Completed = vm.Completed;
+
+            // Save the user-selected months for any chore with a semimonthly recurrence
+            if (ch.Recurrence == Recurrence.SemiMonthly && vm.SelectedMonths != null)
+            {
+                ch.ChoreMonths = new List<ChoreMonth>();
+                foreach (var month in vm.SelectedMonths)
+                {
+                    ChoreMonth cm = new(ch.Id, month);
+                    ch.ChoreMonths.Add(cm);
+                }
+            }
+
+            return ch;
+        }
+
+		// Edit values of an existing chore based on values from the ViewModel 
+		private Chore EditValues(Chore ch, EditChoreViewModel vm)
+		{
+            if (vm.UserId != null)
+            {
+                ch.UserId = vm.UserId;
+            }
+
+            ch.Name = vm.Name;
+            ch.DueDate = vm.DueDate;
+
+            if (vm.CategoryId != null)
+            {
+                ch.CategoryId = vm.CategoryId;
+            }
+
+            ch.Recurrence = vm.Recurrence;
+            ch.Completed = vm.Completed;
+
+            // Save the user-selected months for any chore with a semimonthly recurrence
+            if (ch.Recurrence == Recurrence.SemiMonthly && vm.SelectedMonths != null)
+            {
+                ch.ChoreMonths = new List<ChoreMonth>();
+                foreach (var month in vm.SelectedMonths)
+                {
+                    ChoreMonth cm = new(ch.Id, month);
+                    ch.ChoreMonths.Add(cm);
+                }
+            }
+
+            return ch;
+        }
+
+		// Alters Complete status of a Chore when checked by the user +
+		// Creates a new Chore with an updated DueDate based on the Recurrence value of the initial Chore
+		// No functionality for SemiMonthly recurrence
+		public async Task<IActionResult> Complete(int? id)
         {
             // Retrieve the chore that was marked as complete
             Chore completedChore = _context.Chores.Find(id);
@@ -300,7 +414,7 @@ namespace FinalProject.Controllers
         }
 
         // Returns a datetime value for the next chore's due date based on its recurrence value
-        public DateTime NextIteration(Chore completedChore)
+        private DateTime NextIteration(Chore completedChore)
         {
             var dueDate = DateTime.Today;
 

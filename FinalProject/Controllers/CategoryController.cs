@@ -8,6 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using FinalProject.Areas.Identity.Data;
 using FinalProject.Models;
 using FinalProject.Models.ViewModels;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FinalProject.Controllers
 {
@@ -45,6 +47,7 @@ namespace FinalProject.Controllers
             return View(category);
         }
 
+        [Authorize]
         public IActionResult Create()
         {
             return View();
@@ -52,6 +55,7 @@ namespace FinalProject.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Create(CreateCategoryViewModel vm)
         {
             Category ct = new Category();
@@ -67,6 +71,7 @@ namespace FinalProject.Controllers
             return View(ct);
         }
 
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Categories == null)
@@ -85,6 +90,7 @@ namespace FinalProject.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Title")] Category category)
         {
             if (id != category.Id)
@@ -115,6 +121,7 @@ namespace FinalProject.Controllers
             return View(category);
         }
 
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Categories == null)
@@ -135,6 +142,7 @@ namespace FinalProject.Controllers
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             if (_context.Categories == null)
