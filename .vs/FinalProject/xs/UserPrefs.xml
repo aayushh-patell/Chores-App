@@ -1,20 +1,15 @@
 ﻿<Properties StartupConfiguration="{F0EA4D29-171A-4CA2-A11C-DD3C57B2EF60}|Default">
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.FinalProject PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.Workbench ActiveDocument="FinalProject/Controllers/ChoreController.cs">
     <Files>
       <File FileName="FinalProject/Views/Chore/Edit.cshtml" />
       <File FileName="FinalProject/Models/ViewModels/EditChoreViewModel.cs" />
       <File FileName="FinalProject/Models/ViewModels/CreateChoreViewModel.cs" />
-      <File FileName="FinalProject/Controllers/ChoreController.cs" Line="18" Column="3" />
+      <File FileName="FinalProject/Controllers/ChoreController.cs" Line="272" Column="18" />
       <File FileName="FinalProject/Views/Chore/Index.cshtml" />
       <File FileName="FinalProject/Models/Chore.cs" />
-      <File FileName="FinalProject/Program.cs" Line="63" Column="2" />
+      <File FileName="FinalProject/Program.cs" />
       <File FileName="FinalProject/Areas/Identity/Data/FinalProjectIdentityDbContext.cs" />
       <File FileName="FinalProject/Models/ChoreMonth.cs" />
       <File FileName="FinalProject/Views/Chore/Details.cshtml" />
@@ -25,7 +20,7 @@
       <File FileName="FinalProject/Migrations/FinalProjectIdentityDbContextModelSnapshot.cs" />
       <File FileName="FinalProject/Migrations/20230316153633_ReformViewModels.cs" />
       <File FileName="FinalProject/Areas/Identity/Pages/Account/Register.cshtml.cs" />
-      <File FileName="FinalProject/Controllers/CategoryController.cs" Line="1" Column="1" />
+      <File FileName="FinalProject/Controllers/CategoryController.cs" />
       <File FileName="FinalProject/Models/ViewModels/IndexChoreViewModel.cs" />
       <File FileName="FinalProject/Views/Chore/Create.cshtml" />
       <File FileName="FinalProject/Views/Category/Create.cshtml" />
@@ -67,4 +62,9 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.FinalProject PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
