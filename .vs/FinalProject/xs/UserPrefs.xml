@@ -1,15 +1,20 @@
 ﻿<Properties StartupConfiguration="{F0EA4D29-171A-4CA2-A11C-DD3C57B2EF60}|Default">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench ActiveDocument="FinalProject/Controllers/ChoreController.cs">
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.FinalProject PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="FinalProject/Program.cs">
     <Files>
       <File FileName="FinalProject/Views/Chore/Edit.cshtml" />
       <File FileName="FinalProject/Models/ViewModels/EditChoreViewModel.cs" />
       <File FileName="FinalProject/Models/ViewModels/CreateChoreViewModel.cs" />
-      <File FileName="FinalProject/Controllers/ChoreController.cs" Line="272" Column="18" />
+      <File FileName="FinalProject/Controllers/ChoreController.cs" Line="263" Column="24" />
       <File FileName="FinalProject/Views/Chore/Index.cshtml" />
       <File FileName="FinalProject/Models/Chore.cs" />
-      <File FileName="FinalProject/Program.cs" />
+      <File FileName="FinalProject/Program.cs" Line="17" Column="22" />
       <File FileName="FinalProject/Areas/Identity/Data/FinalProjectIdentityDbContext.cs" />
       <File FileName="FinalProject/Models/ChoreMonth.cs" />
       <File FileName="FinalProject/Views/Chore/Details.cshtml" />
@@ -44,9 +49,7 @@
                   <Node name="Pages" expanded="True" />
                 </Node>
               </Node>
-              <Node name="Controllers" expanded="True">
-                <Node name="ChoreController.cs" selected="True" />
-              </Node>
+              <Node name="Controllers" expanded="True" />
               <Node name="Models" expanded="True">
                 <Node name="ViewModels" expanded="True" />
               </Node>
@@ -56,15 +59,11 @@
                 <Node name="User" expanded="True" />
               </Node>
               <Node name="wwwroot" expanded="True" />
+              <Node name="Program.cs" selected="True" />
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.ItemProperties.FinalProject PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

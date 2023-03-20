@@ -259,15 +259,18 @@ namespace FinalProject.Controllers
 		{
             if (item1 != null)
             {
-                chores = chores.Where(c => c.DueDate.ToString("MMMM").ToLower() == item1.ToLower() || c.Category?.Title.ToLower() == item1.ToLower() || c.User?.FirstName.ToLower() == item1.ToLower()).ToList();
+                item1 = item1.ToLower();
+                chores = chores.Where(c => c.DueDate.ToString("MMMM").ToLower() == item1 || c.Category?.Title.ToLower() == item1 || c.User?.FirstName.ToLower() == item1).ToList();
 
                 if (item2 != null)
                 {
-                    chores = chores.Where(c => c.Category.Title.ToLower() == item2.ToLower() || c.User.FirstName.ToLower() == item2.ToLower()).ToList();
+                    item2 = item2.ToLower();
+                    chores = chores.Where(c => c.Category?.Title.ToLower() == item2 || c.User?.FirstName.ToLower() == item2).ToList();
 
                     if (item3 != null)
                     {
-                        chores = chores.Where(c => c.User.FirstName.ToLower() == item3.ToLower()).ToList();
+                        item3 = item3.ToLower();
+                        chores = chores.Where(c => c.User?.FirstName.ToLower() == item3).ToList();
                     }
                 }
             }

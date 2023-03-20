@@ -56,6 +56,12 @@ public class Program
             defaults: new { controller = "Chore", action = "Index" }
         );
 
+        app.MapControllerRoute(
+            name: "Chores2",
+            pattern: "chores/{item1?}/{item2?}/{item3?}",
+            defaults: new { controller = "Chore", action = "Index" }
+        );
+
         app.MapRazorPages();
 
         app.Run();
