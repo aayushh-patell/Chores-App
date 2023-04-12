@@ -1,20 +1,19 @@
 ﻿<Properties StartupConfiguration="{F0EA4D29-171A-4CA2-A11C-DD3C57B2EF60}|Default">
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.FinalProject PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.FinalProject PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
   <MonoDevelop.Ide.Workbench ActiveDocument="FinalProject/Program.cs">
     <Files>
       <File FileName="FinalProject/Views/Chore/Edit.cshtml" />
       <File FileName="FinalProject/Models/ViewModels/EditChoreViewModel.cs" />
       <File FileName="FinalProject/Models/ViewModels/CreateChoreViewModel.cs" />
-      <File FileName="FinalProject/Controllers/ChoreController.cs" Line="263" Column="24" />
+      <File FileName="FinalProject/Controllers/ChoreController.cs" />
       <File FileName="FinalProject/Views/Chore/Index.cshtml" />
       <File FileName="FinalProject/Models/Chore.cs" />
-      <File FileName="FinalProject/Program.cs" Line="17" Column="22" />
+      <File FileName="FinalProject/Program.cs" Line="23" Column="72" />
       <File FileName="FinalProject/Areas/Identity/Data/FinalProjectIdentityDbContext.cs" />
       <File FileName="FinalProject/Models/ChoreMonth.cs" />
       <File FileName="FinalProject/Views/Chore/Details.cshtml" />
@@ -42,7 +41,7 @@
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="FinalProject" expanded="True">
-            <Node name="FinalProject" expanded="True">
+            <Node name="FinalProject" expanded="True" selected="True">
               <Node name="Areas" expanded="True">
                 <Node name="Identity" expanded="True">
                   <Node name="Data" expanded="True" />
@@ -59,11 +58,11 @@
                 <Node name="User" expanded="True" />
               </Node>
               <Node name="wwwroot" expanded="True" />
-              <Node name="Program.cs" selected="True" />
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
 </Properties>
