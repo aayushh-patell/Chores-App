@@ -50,11 +50,11 @@ public class Program
             name: "default",
             pattern: "{controller=Chore}/{action=Index}/{item1?}/{item2?}/{item3?}");
 
-        app.MapControllerRoute(
-            name: "Chores",
-            pattern: "Chores/{item1?}/{item2?}/{item3?}",
-            defaults: new { controller = "Chore", action = "Index" }
-        );
+        //app.MapControllerRoute(
+        //    name: "Chores",
+        //    pattern: "Chores/{item1?}/{item2?}/{item3?}",
+        //    defaults: new { controller = "Chore", action = "Index" }
+        //);
 
         app.MapControllerRoute(
             name: "Chores2",

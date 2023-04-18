@@ -382,6 +382,7 @@ namespace FinalProject.Controllers
 		// Alters Complete status of a Chore when checked by the user +
 		// Creates a new Chore with an updated DueDate based on the Recurrence value of the initial Chore
 		// No functionality for SemiMonthly recurrence
+		[Authorize]
 		public async Task<IActionResult> Complete(int? id)
         {
             // Retrieve the chore that was marked as complete

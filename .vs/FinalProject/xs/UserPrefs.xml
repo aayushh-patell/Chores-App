@@ -1,61 +1,46 @@
 ﻿<Properties StartupConfiguration="{F0EA4D29-171A-4CA2-A11C-DD3C57B2EF60}|Default">
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.FinalProject PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="FinalProject/Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="FinalProject/Models/Chore.cs">
     <Files>
       <File FileName="FinalProject/Views/Chore/Edit.cshtml" />
       <File FileName="FinalProject/Models/ViewModels/EditChoreViewModel.cs" />
-      <File FileName="FinalProject/Models/ViewModels/CreateChoreViewModel.cs" />
-      <File FileName="FinalProject/Controllers/ChoreController.cs" />
-      <File FileName="FinalProject/Views/Chore/Index.cshtml" />
-      <File FileName="FinalProject/Models/Chore.cs" />
-      <File FileName="FinalProject/Program.cs" Line="23" Column="72" />
-      <File FileName="FinalProject/Areas/Identity/Data/FinalProjectIdentityDbContext.cs" />
-      <File FileName="FinalProject/Models/ChoreMonth.cs" />
+      <File FileName="FinalProject/Models/ViewModels/CreateChoreViewModel.cs" Line="1" Column="1" />
+      <File FileName="FinalProject/Controllers/ChoreController.cs" Line="386" Column="48" />
+      <File FileName="FinalProject/Views/Chore/Index.cshtml" Line="1" Column="1" />
+      <File FileName="FinalProject/Models/Chore.cs" Line="36" Column="1" />
+      <File FileName="FinalProject/Program.cs" Line="20" Column="51" />
+      <File FileName="FinalProject/Areas/Identity/Data/FinalProjectIdentityDbContext.cs" Line="169" Column="1" />
+      <File FileName="FinalProject/Models/ChoreMonth.cs" Line="1" Column="1" />
       <File FileName="FinalProject/Views/Chore/Details.cshtml" />
-      <File FileName="FinalProject/Migrations/20230316155036_RemoveMonthModel.cs" />
-      <File FileName="FinalProject/Migrations/20230315144311_AddMonthClass.cs" />
-      <File FileName="FinalProject/Migrations/20230308154239_Initial.cs" />
-      <File FileName="FinalProject/Migrations/20230316155413_RemoveChoreMonthId.cs" />
-      <File FileName="FinalProject/Migrations/FinalProjectIdentityDbContextModelSnapshot.cs" />
-      <File FileName="FinalProject/Migrations/20230316153633_ReformViewModels.cs" />
-      <File FileName="FinalProject/Areas/Identity/Pages/Account/Register.cshtml.cs" />
-      <File FileName="FinalProject/Controllers/CategoryController.cs" />
-      <File FileName="FinalProject/Models/ViewModels/IndexChoreViewModel.cs" />
-      <File FileName="FinalProject/Views/Chore/Create.cshtml" />
-      <File FileName="FinalProject/Views/Category/Create.cshtml" />
-      <File FileName="FinalProject/Views/Category/Edit.cshtml" />
-      <File FileName="FinalProject/Views/User/Create.cshtml" />
-      <File FileName="FinalProject/Views/User/Edit.cshtml" />
-      <File FileName="FinalProject/Views/Category/Index.cshtml" />
-      <File FileName="FinalProject/Views/Category/Details.cshtml" />
-      <File FileName="FinalProject/Views/Chore/Delete.cshtml" />
-      <File FileName="FinalProject/Models/User.cs" />
-      <File FileName="FinalProject/Controllers/UserController.cs" />
+      <File FileName="FinalProject/Migrations/20230316155036_RemoveMonthModel.cs" Line="1" Column="1" />
+      <File FileName="FinalProject/Migrations/20230315144311_AddMonthClass.cs" Line="1" Column="1" />
+      <File FileName="FinalProject/Migrations/20230308154239_Initial.cs" Line="1" Column="1" />
+      <File FileName="FinalProject/Migrations/20230316155413_RemoveChoreMonthId.cs" Line="1" Column="1" />
+      <File FileName="FinalProject/Migrations/FinalProjectIdentityDbContextModelSnapshot.cs" Line="1" Column="1" />
+      <File FileName="FinalProject/Migrations/20230316153633_ReformViewModels.cs" Line="1" Column="1" />
+      <File FileName="FinalProject/Areas/Identity/Pages/Account/Register.cshtml.cs" Line="1" Column="1" />
+      <File FileName="FinalProject/Controllers/CategoryController.cs" Line="72" Column="1" />
+      <File FileName="FinalProject/Models/ViewModels/IndexChoreViewModel.cs" Line="1" Column="1" />
+      <File FileName="FinalProject/Views/Chore/Create.cshtml" Line="1" Column="1" />
+      <File FileName="FinalProject/Views/Category/Create.cshtml" Line="1" Column="1" />
+      <File FileName="FinalProject/Views/Category/Edit.cshtml" Line="1" Column="1" />
+      <File FileName="FinalProject/Views/User/Create.cshtml" Line="1" Column="1" />
+      <File FileName="FinalProject/Views/User/Edit.cshtml" Line="1" Column="1" />
+      <File FileName="FinalProject/Views/Category/Index.cshtml" Line="1" Column="1" />
+      <File FileName="FinalProject/Views/Category/Details.cshtml" Line="1" Column="1" />
+      <File FileName="FinalProject/Views/Chore/Delete.cshtml" Line="1" Column="1" />
+      <File FileName="FinalProject/Models/User.cs" Line="13" Column="27" />
+      <File FileName="FinalProject/Controllers/UserController.cs" Line="1" Column="1" />
+      <File FileName="FinalProject/Migrations/20230320005749_AddSeedData.cs" Line="21" Column="1" />
+      <File FileName="FinalProject/Models/ViewModels/CreateCategoryViewModel.cs" Line="1" Column="1" />
+      <File FileName="FinalProject/Models/ErrorViewModel.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="FinalProject" expanded="True">
-            <Node name="FinalProject" expanded="True" selected="True">
+          <Node name="FinalProject" expanded="True" selected="True">
+            <Node name="FinalProject" expanded="True">
               <Node name="Areas" expanded="True">
-                <Node name="Identity" expanded="True">
-                  <Node name="Data" expanded="True" />
-                  <Node name="Pages" expanded="True" />
-                </Node>
-              </Node>
-              <Node name="Controllers" expanded="True" />
-              <Node name="Models" expanded="True">
-                <Node name="ViewModels" expanded="True" />
-              </Node>
-              <Node name="Views" expanded="True">
-                <Node name="Category" expanded="True" />
-                <Node name="Chore" expanded="True" />
-                <Node name="User" expanded="True" />
+                <Node name="Identity" expanded="True" />
               </Node>
               <Node name="wwwroot" expanded="True" />
             </Node>
@@ -64,5 +49,11 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.FinalProject PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
+  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
 </Properties>
