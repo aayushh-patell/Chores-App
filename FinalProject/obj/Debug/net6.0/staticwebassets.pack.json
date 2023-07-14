@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets/FinalProject.bundle.scp.css"
     },
     {
+      "Id": "/Users/aayushpatel/Documents/MITT/Grade 12/Advanced Database and ORM Concepts/FinalProject/FinalProject/wwwroot/.DS_Store",
+      "PackagePath": "staticwebassets/.DS_Store"
+    },
+    {
       "Id": "/Users/aayushpatel/Documents/MITT/Grade 12/Advanced Database and ORM Concepts/FinalProject/FinalProject/wwwroot/css/site.css",
       "PackagePath": "staticwebassets/css/site.css"
     },
@@ -15,6 +19,10 @@
     {
       "Id": "/Users/aayushpatel/Documents/MITT/Grade 12/Advanced Database and ORM Concepts/FinalProject/FinalProject/wwwroot/js/site.js",
       "PackagePath": "staticwebassets/js/site.js"
+    },
+    {
+      "Id": "/Users/aayushpatel/Documents/MITT/Grade 12/Advanced Database and ORM Concepts/FinalProject/FinalProject/wwwroot/lib/.DS_Store",
+      "PackagePath": "staticwebassets/lib/.DS_Store"
     },
     {
       "Id": "/Users/aayushpatel/Documents/MITT/Grade 12/Advanced Database and ORM Concepts/FinalProject/FinalProject/wwwroot/lib/bootstrap/LICENSE",

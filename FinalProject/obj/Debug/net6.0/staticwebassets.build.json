@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "9M4LGtpyw1tw65GkCn+k2anScEd5z0v6WKBp/yPuTBY=",
+  "Hash": "2bAaC1hK1Ass5dNrVuN17oJ1WswrJdQ6sspVndGJL4o=",
   "Source": "FinalProject",
   "BasePath": "_content/FinalProject",
   "Mode": "Default",
@@ -1071,6 +1071,23 @@
       "OriginalItemSpec": "/Users/aayushpatel/Documents/MITT/Grade 12/Advanced Database and ORM Concepts/FinalProject/FinalProject/obj/Debug/net6.0/scopedcss/projectbundle/FinalProject.bundle.scp.css"
     },
     {
+      "Identity": "/Users/aayushpatel/Documents/MITT/Grade 12/Advanced Database and ORM Concepts/FinalProject/FinalProject/wwwroot/.DS_Store",
+      "SourceId": "FinalProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/aayushpatel/Documents/MITT/Grade 12/Advanced Database and ORM Concepts/FinalProject/FinalProject/wwwroot/",
+      "BasePath": "_content/FinalProject",
+      "RelativePath": ".DS_Store",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/.DS_Store"
+    },
+    {
       "Identity": "/Users/aayushpatel/Documents/MITT/Grade 12/Advanced Database and ORM Concepts/FinalProject/FinalProject/wwwroot/css/site.css",
       "SourceId": "FinalProject",
       "SourceType": "Discovered",
@@ -1120,6 +1137,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/js/site.js"
+    },
+    {
+      "Identity": "/Users/aayushpatel/Documents/MITT/Grade 12/Advanced Database and ORM Concepts/FinalProject/FinalProject/wwwroot/lib/.DS_Store",
+      "SourceId": "FinalProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/aayushpatel/Documents/MITT/Grade 12/Advanced Database and ORM Concepts/FinalProject/FinalProject/wwwroot/",
+      "BasePath": "_content/FinalProject",
+      "RelativePath": "lib/.DS_Store",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/lib/.DS_Store"
     },
     {
       "Identity": "/Users/aayushpatel/Documents/MITT/Grade 12/Advanced Database and ORM Concepts/FinalProject/FinalProject/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css",
