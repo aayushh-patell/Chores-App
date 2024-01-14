@@ -1,10 +1,15 @@
 ﻿<Properties StartupConfiguration="{F0EA4D29-171A-4CA2-A11C-DD3C57B2EF60}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="FinalProject/Views/Shared/_LoginPartial.cshtml">
+  <MonoDevelop.Ide.ItemProperties.ChoreTracker PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workbench ActiveDocument="FinalProject/Controllers/UserController.cs">
     <Files>
       <File FileName="FinalProject/Views/Chore/Edit.cshtml" />
       <File FileName="FinalProject/Models/ViewModels/EditChoreViewModel.cs" />
       <File FileName="FinalProject/Models/ViewModels/CreateChoreViewModel.cs" />
-      <File FileName="FinalProject/Controllers/ChoreController.cs" Line="268" Column="65" />
+      <File FileName="FinalProject/Controllers/ChoreController.cs" />
       <File FileName="FinalProject/Views/Chore/Index.cshtml" />
       <File FileName="FinalProject/Models/Chore.cs" />
       <File FileName="FinalProject/Program.cs" />
@@ -22,10 +27,11 @@
       <File FileName="FinalProject/Views/Category/Details.cshtml" />
       <File FileName="FinalProject/Views/Chore/Delete.cshtml" />
       <File FileName="FinalProject/Models/User.cs" />
-      <File FileName="FinalProject/Controllers/UserController.cs" />
+      <File FileName="FinalProject/Controllers/UserController.cs" Line="1" Column="1" />
       <File FileName="FinalProject/Models/ViewModels/CreateCategoryViewModel.cs" />
       <File FileName="FinalProject/Models/ErrorViewModel.cs" />
-      <File FileName="FinalProject/Views/Shared/_LoginPartial.cshtml" Line="26" Column="2" />
+      <File FileName="FinalProject/Views/Shared/_LoginPartial.cshtml" Line="22" Column="10" />
+      <File FileName="../../../../../../.microsoft/usersecrets/aspnet-FinalProject-aadb005f-cbe5-41ef-ae01-d9107386f339/secrets.json" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -35,13 +41,13 @@
               <Node name="Areas" expanded="True">
                 <Node name="Identity" expanded="True" />
               </Node>
-              <Node name="Controllers" expanded="True" />
+              <Node name="Controllers" expanded="True">
+                <Node name="UserController.cs" selected="True" />
+              </Node>
               <Node name="Models" expanded="True" />
               <Node name="Views" expanded="True">
                 <Node name="Chore" expanded="True" />
-                <Node name="Shared" expanded="True">
-                  <Node name="_LoginPartial.cshtml" selected="True" />
-                </Node>
+                <Node name="Shared" expanded="True" />
               </Node>
               <Node name="wwwroot" expanded="True" />
             </Node>
@@ -50,11 +56,4 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.FinalProject PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
 </Properties>

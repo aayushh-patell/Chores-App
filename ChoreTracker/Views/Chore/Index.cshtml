@@ -1,0 +1,114 @@
+@*@model IEnumerable<FinalProject.Models.Chore>*@
+@model ChoreTracker.Models.ViewModels.IndexChoreViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<form method="post">
+    <div class="form-group">
+        <label class="control-label">Completion Status</label>
+        <select asp-for="CompleteSelection" class="form-control">
+            <option value="">All</option>
+            <option value="true">Complete</option>
+            <option value="false">Incomplete</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label">User</label>
+        <select asp-for="UserSelection" asp-items="@(new SelectList(Model.UserOptions, "Id", "FirstName"))" class="form-control">
+            <option value="">-- Select User --</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label">Category</label>
+        <select asp-for="CategorySelection" asp-items="@(new SelectList(Model.CategoryOptions, "Id", "Title"))" class="form-control">
+            <option value="">-- Select Category --</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="RecurrenceSelection" class="control-label">Recurrence</label>
+        <select asp-for="RecurrenceSelection" asp-items="@(new SelectList(Model.RecurrenceOptions))" class="form-control">
+            <option value="">-- Select Recurrence --</option>
+        </select>
+    </div>
+    <br />
+    <input type="submit" class="btn btn-primary" />
+</form>
+
+<br />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Due Date
+            </th>
+            <th>
+                Recurrence
+            </th>
+            <th>
+                Completed
+            </th>
+            <th>
+                Category
+            </th>
+            <th>
+                User
+            </th>
+            <th>
+                SemiMonthly Month Selection
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Chores)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DueDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Recurrence)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Completed)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.FirstName)
+                </td>
+                <td>
+                    @foreach (var c in item.ChoreMonths)
+                    {
+                        <p>@c.Month </p>
+                    }
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a> |
+                    <a asp-action="Complete" asp-route-id="@item.Id">Mark as Complete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
